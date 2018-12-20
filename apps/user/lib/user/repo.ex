@@ -1,0 +1,4 @@
+defmodule Kreon.User.Repo do
+  use Ecto.Repo,
+  otp_app: :user
+end
