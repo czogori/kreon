@@ -25,8 +25,7 @@ defmodule LearningObject.Mixfile do
   end
 
   defp deps do
-     [{:database, in_umbrella: true},
-     {:ecto, "~> 2.0"}]
+     [{:database, in_umbrella: true}]
   end
 
   defp aliases do
