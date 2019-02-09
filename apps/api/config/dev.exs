@@ -55,3 +55,11 @@ config :api, Api.Repo,
   database: "api_dev",
   hostname: "localhost",
   pool_size: 10
+
+# config :eventstore, EventStore.Storage,
+#   serializer: Commanded.Serialization.JsonSerializer,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "kreon_eventstore",
+#   hostname: "localhost",
+#   pool_size: 10

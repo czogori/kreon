@@ -19,8 +19,6 @@ defmodule ApiWeb.Router do
 
   scope "/" do
     pipe_through :browser # Use the default browser stack
- 
-    get "/", ApiWeb.PageController, :index
   end
 
   if Mix.env == :dev do
