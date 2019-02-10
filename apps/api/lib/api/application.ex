@@ -9,7 +9,6 @@ defmodule Api.Application do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(Api.Repo, []),
       # Start the endpoint when the application starts
       supervisor(ApiWeb.Endpoint, []),
       supervisor(Absinthe.Subscription, [ApiWeb.Endpoint]), # add this line

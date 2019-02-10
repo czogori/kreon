@@ -1,5 +1,4 @@
 defmodule Kreon.LearningObject.Command.DeleteLearningObject do
-    alias Kreon.LearningObject.Repo
     alias Kreon.LearningObject.Model.LearningObject
 
     def execute(%{id: id}) do

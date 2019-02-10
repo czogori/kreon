@@ -1,5 +1,4 @@
 defmodule Kreon.LearningObject.Command.Register do
-    alias Kreon.LearningObject.Repo
     alias Kreon.LearningObject.Model.LearningObjectUser
 
     def execute(params) do

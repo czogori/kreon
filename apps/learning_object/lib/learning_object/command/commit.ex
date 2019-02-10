@@ -1,5 +1,4 @@
 defmodule Kreon.LearningObject.Command.Commit do
-    alias Kreon.LearningObject.Repo
     alias Kreon.LearningObject.Model.Result
     import Ecto.Query, only: [from: 2]
 

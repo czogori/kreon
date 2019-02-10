@@ -1,5 +1,4 @@
 defmodule Kreon.LearningObject.Command.Deregister do
-    alias Kreon.LearningObject.Repo
     alias Kreon.LearningObject.Model.LearningObjectUser
     import Ecto.Query
 

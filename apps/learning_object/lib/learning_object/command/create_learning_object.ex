@@ -1,5 +1,4 @@
 defmodule Kreon.LearningObject.Command.CreateLearningObject do
-    alias Kreon.LearningObject.Repo
     alias Kreon.LearningObject.Model.LearningObject
 
     def execute(params) do

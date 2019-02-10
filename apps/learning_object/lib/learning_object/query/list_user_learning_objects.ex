@@ -2,7 +2,6 @@ defmodule Kreon.LearningObject.Query.ListUserLearningObjecs do
     import Ecto.Query
     alias Kreon.LearningObject.Model.LearningObject
     alias Kreon.LearningObject.Model.LearningObjectUser
-    alias Kreon.LearningObject.Repo
 
     def execute(user_id) do
         query = from lou in LearningObjectUser,

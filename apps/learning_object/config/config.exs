@@ -2,10 +2,10 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :learning_object, Kreon.LearningObject.Repo,
+config :learning_object, Repo,
   adapter: Ecto.Adapters.Postgres,
   database: "kreon",
   username: "aj",
   password: "aj"
 
-config :learning_object, ecto_repos: [Kreon.LearningObject.Repo]
+config :learning_object, ecto_repos: [Repo]

@@ -12,7 +12,6 @@ defmodule LearningObject.Application do
     children = [
       # Starts a worker by calling: LearningObject.Worker.start_link(arg1, arg2, arg3)
       # worker(LearningObject.Worker, [arg1, arg2, arg3]),
-      worker(Kreon.LearningObject.Repo, []),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
