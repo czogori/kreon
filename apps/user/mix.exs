@@ -11,8 +11,7 @@ defmodule User.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps(),
-     aliases: aliases()]
+     deps: deps()]
   end
 
   def application do
@@ -27,12 +26,6 @@ defmodule User.Mixfile do
       {:ecto, "~> 2.2"},
       {:comeonin, "~> 4.0"},
       {:argon2_elixir, "~> 1.2"}
-    ]
-  end
-
-  defp aliases do
-    [
-      seed: "run priv/repo/seeds.exs"
     ]
   end
 end

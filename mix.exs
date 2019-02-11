@@ -20,8 +20,8 @@ defmodule Kreon.Mixfile do
       setup: [
         "ecto.drop",
         "ecto.create",
-        "ecto.migrate -r Kreon.User.Repo -r Kreon.LearningObject.Repo",
-        "run -r apps/user/priv/repo/seeds.exs -r apps/learning_object/priv/repo/seeds.exs"
+        "ecto.migrate -r Repo",
+        "run -r apps/database/priv/repo/seeds.exs"
       ]
     ]
   end

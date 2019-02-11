@@ -11,8 +11,7 @@ defmodule LearningObject.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps(),
-     aliases: aliases()]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -30,12 +29,6 @@ defmodule LearningObject.Mixfile do
       # {:commanded, "0.16.0", override: true},
       # {:commanded_ecto_projections, "~> 0.6"},
       # {:commanded_eventstore_adapter, "0.4.0"}
-    ]
-  end
-
-  defp aliases do
-    [
-      seed: "run priv/repo/seeds.exs"
     ]
   end
 end
