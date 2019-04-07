@@ -1,4 +1,4 @@
-defmodule Kreon.LearningObject.Model.LearningObject do
+defmodule LearningObject.Projections.LearningObject do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -15,7 +15,7 @@ defmodule Kreon.LearningObject.Model.LearningObject do
     #has_many :learnig_obcject_user, Kreon.LearningObject.Model.LearningObjectUser
   end
 
-  @required ~w(id name type)a
+  @required ~w(id name url)a
 
   def changeset(user, params \\ %{}) do
     user

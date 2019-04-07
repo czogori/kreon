@@ -23,7 +23,6 @@ defmodule User.Mixfile do
   defp deps do
     [
       {:database, in_umbrella: true},
-      {:ecto, "~> 2.2"},
       {:comeonin, "~> 4.0"},
       {:argon2_elixir, "~> 1.2"}
     ]

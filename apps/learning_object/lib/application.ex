@@ -10,8 +10,9 @@ defmodule LearningObject.Application do
 
     # Define workers and child supervisors to be supervised
     children = [
-      # Starts a worker by calling: LearningObject.Worker.start_link(arg1, arg2, arg3)
-      # worker(LearningObject.Worker, [arg1, arg2, arg3]),
+      # Starts a worker by calling: User.Worker.start_link(arg1, arg2, arg3)
+      # worker(User.Worker, [arg1, arg2, arg3]),
+      supervisor(LearningObject.Supervisor, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

@@ -1,5 +1,4 @@
 defmodule Kreon.User.Command.Authenticate do
-    alias Kreon.User.Repo
     alias Kreon.User
     import Ecto.Query, warn: false
 

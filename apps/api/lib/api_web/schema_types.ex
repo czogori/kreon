@@ -24,37 +24,42 @@ defmodule ApiWeb.SchemaTypes do
       end
     end 
   
-    object :learning_object do
-      field :id, :id
+    object :video do
+      field :uuid, :id
       field :name, :string
-      field :type, :string
-      field :parent_id, :integer
       field :url, :string
-      field :description, :string
     end
+    # object :learning_object do
+    #   field :id, :id
+    #   field :name, :string
+    #   field :type, :string
+    #   field :parent_id, :integer
+    #   field :url, :string
+    #   field :description, :string
+    # end
   
-    object :learning_object_user do
-      field :learning_object_id, :string
-      field :user_id, :string
-    end
+    # object :learning_object_user do
+    #   field :learning_object_id, :string
+    #   field :user_id, :string
+    # end
 
-    object :result do
-      field :learning_object_id, :string
-      field :user_id, :string
-      field :status, :string
-      field :score, :string
-      field :time, :string
-      field :progress, :string
-    end
+    # object :result do
+    #   field :learning_object_id, :string
+    #   field :user_id, :string
+    #   field :status, :string
+    #   field :score, :string
+    #   field :time, :string
+    #   field :progress, :string
+    # end
 
-    object :my do
-      field :id, :string
-      field :user_id, :string
-      field :status, :string
-      field :score, :string
-      field :time, :string
-      field :progress, :string
-      field :name, :string
-      field :description, :string
-    end
+    # object :my do
+    #   field :id, :string
+    #   field :user_id, :string
+    #   field :status, :string
+    #   field :score, :string
+    #   field :time, :string
+    #   field :progress, :string
+    #   field :name, :string
+    #   field :description, :string
+    # end
   end

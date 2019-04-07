@@ -1,5 +1,4 @@
 defmodule Kreon.User.Command.Register do
-    alias Kreon.User.Repo
     alias Kreon.User
 
     def execute(params) do

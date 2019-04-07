@@ -26,9 +26,6 @@ defmodule LearningObject.Mixfile do
   defp deps do
     [
       {:database, in_umbrella: true}
-      # {:commanded, "0.16.0", override: true},
-      # {:commanded_ecto_projections, "~> 0.6"},
-      # {:commanded_eventstore_adapter, "0.4.0"}
     ]
   end
 end
