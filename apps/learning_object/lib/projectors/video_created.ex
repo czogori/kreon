@@ -3,7 +3,7 @@ defmodule LearningObject.Projectors.VideoCreated do
     name: "LearningObject.Projectors.VideoCreated"
 
   alias LearningObject.Events.VideoCreated
-  alias LearningObject.Projections.LearningObject, as: Lo
+  alias LearningObject.ReadModels.LearningObject, as: Lo
 
   project(%VideoCreated{} = evt, _metadata, fn multi ->
     Ecto.Multi.insert(multi, :video_created, %Lo{

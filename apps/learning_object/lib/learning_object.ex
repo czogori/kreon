@@ -1,13 +1,12 @@
 defmodule LearningObject do
 
     alias LearningObject.Commands.CreateVideo
+    alias LearningObject.ReadModels.Query
     alias LearningObject.Router
+
     @moduledoc """
     Bounded context for Learning Object
     """
-
-    alias LearningObject.Commands.CreateVideo
-
     def create_video(%{name: name, url: url, uuid: uuid} = params) do
       struct(CreateVideo, params)
       |> Router.dispatch(consistency: :strong)
@@ -35,7 +34,7 @@ defmodule LearningObject do
     # def delete(params), do: DeleteLearningObject.execute(params)
 
     # def get_by_id(id), do: GetById.execute(id)
-    # def all(), do: ListLearningObjects.execute()
+    defdelegate all(), to: Query
 
     # def register(params), do: Register.execute(params)
     # def deregister(params), do: Deregister.execute(params)

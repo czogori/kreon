@@ -1,4 +1,4 @@
-defmodule LearningObject.Projections.LearningObject do
+defmodule LearningObject.ReadModels.LearningObject do
   use Ecto.Schema
   import Ecto.Changeset
 
