@@ -17,14 +17,14 @@ defmodule ApiWeb.Schema do
       resolve &Resolvers.User.find/2
     end
 
-  #   field :learning_objects, list_of(:learning_object) do
-  #     resolve &Resolvers.LearningObject.all/2
-  #   end
+    field :learning_objects, list_of(:learning_object) do
+      resolve &Resolvers.LearningObject.all/2
+    end
 
-  #   field :learning_object, type: :learning_object do
-  #     arg :id, non_null(:id)
-  #     resolve &Resolvers.LearningObject.find/2
-  #   end
+    field :learning_object, type: :learning_object do
+      arg :id, non_null(:id)
+      resolve &Resolvers.LearningObject.find/2
+    end
 
   #   field :user_learning_objects, list_of(:learning_object_user) do
   #     resolve &Resolvers.LearningObjectUser.all/2

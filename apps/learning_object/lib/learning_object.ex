@@ -33,8 +33,8 @@ defmodule LearningObject do
     # def create(params), do: CreateLearningObject.execute(params)    
     # def delete(params), do: DeleteLearningObject.execute(params)
 
-    # def get_by_id(id), do: GetById.execute(id)
     defdelegate all(), to: Query
+    defdelegate get(id), to: Query
 
     # def register(params), do: Register.execute(params)
     # def deregister(params), do: Deregister.execute(params)

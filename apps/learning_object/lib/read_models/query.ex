@@ -8,4 +8,6 @@ defmodule LearningObject.ReadModels.Query do
 
     Repo.all(query)
   end
+
+  def get(id), do: Repo.get(LearningObject, id)
 end

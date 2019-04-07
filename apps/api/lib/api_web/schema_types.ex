@@ -29,14 +29,15 @@ defmodule ApiWeb.SchemaTypes do
       field :name, :string
       field :url, :string
     end
-    # object :learning_object do
-    #   field :id, :id
-    #   field :name, :string
-    #   field :type, :string
-    #   field :parent_id, :integer
-    #   field :url, :string
-    #   field :description, :string
-    # end
+
+    object :learning_object do
+      field :id, :id
+      field :name, :string
+      field :type, :string
+      field :parent_id, :integer
+      field :url, :string
+      field :description, :string
+    end
   
     # object :learning_object_user do
     #   field :learning_object_id, :string
