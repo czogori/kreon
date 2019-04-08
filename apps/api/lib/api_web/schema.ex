@@ -81,7 +81,7 @@ defmodule ApiWeb.Schema do
     # end
 
     @desc "Create a video"
-    field :create_video, :video do
+    field :create_video, :learning_object do
       arg :name, non_null(:string)
       # arg :description, :string
       arg :url, :string

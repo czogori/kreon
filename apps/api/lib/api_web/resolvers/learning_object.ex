@@ -15,7 +15,7 @@ defmodule ApiWeb.Resolvers.LearningObject do
     def find(_, _), do: {:error, "Not Authorized"}
 
     def create(args, _info) do
-        LearningObject.create_video(args)
+      LearningObject.create_video(args)
     end
 
     # def delete(args, _info) do

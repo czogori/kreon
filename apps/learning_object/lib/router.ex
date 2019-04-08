@@ -3,6 +3,7 @@ defmodule LearningObject.Router do
 
   alias LearningObject.Aggregates.Video
   alias LearningObject.Commands.CreateVideo
+  alias LearningObject.CommandHandlers.CreateVideoHandler
 
-  dispatch([CreateVideo], to: Video, identity: :uuid)
+  dispatch([CreateVideo], to: CreateVideoHandler, aggregate: Video, identity: :uuid)
 end

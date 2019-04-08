@@ -1,6 +1,7 @@
 defmodule LearningObject.Projectors.VideoCreated do
   use Commanded.Projections.Ecto,
-    name: "LearningObject.Projectors.VideoCreated"
+    name: "LearningObject.Projectors.VideoCreated",
+    consistency: :strong
 
   alias LearningObject.Events.VideoCreated
   alias LearningObject.ReadModels.LearningObject, as: Lo
