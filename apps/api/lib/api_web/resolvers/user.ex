@@ -38,7 +38,6 @@ defmodule ApiWeb.Resolvers.User do
   end
 
   def authenticate(%{login: login, password: password}, _info) do
-    Logger.info "fooooooooooo"
     case Authenticate.execute(login, password) do
       {:ok, user} -> create_token(user)
       {:error, message} -> {:error, message} 

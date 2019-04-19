@@ -1,7 +1,7 @@
 defmodule LearningObject do
 
     alias LearningObject.Commands.CreateVideo
-    alias LearningObject.ReadModels.Query
+    alias LearningObject.Queries.LearningObject
     alias LearningObject.Router
 
     @moduledoc """
@@ -22,6 +22,6 @@ defmodule LearningObject do
       |> create_video()
     end
 
-    defdelegate all(), to: Query
-    defdelegate get(id), to: Query
+    defdelegate all(), to: LearningObject
+    defdelegate get(id), to: LearningObject
 end

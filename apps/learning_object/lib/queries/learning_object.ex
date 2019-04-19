@@ -1,4 +1,4 @@
-defmodule LearningObject.ReadModels.Query do
+defmodule LearningObject.Queries.LearningObject do
   import Ecto.Query
   alias LearningObject.ReadModels.LearningObject
 
