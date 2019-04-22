@@ -1,0 +1,19 @@
+<%= link "Nowy kurs", to: Routes.learning_object_path(@conn, :new), class: "button" %>
+<table>
+<tr>
+  <th>Nazwa</th>
+  <th>URL</th>
+  <th>Akcje</th>
+</tr>
+
+<%= for item <- @items do %>
+<tr>
+  <td><%= item.name %></td>
+  <td><%= item.url %></td>
+  <td>
+    <span><%= link "Pokaż", to: Routes.learning_object_path(@conn, :show, item), method: :delete, data: [confirm: "Jesteś pewny?"], class: "button" %></span>
+    <span><%= link "Usuń", to: Routes.learning_object_path(@conn, :delete, item), class: "button" %></span>
+  </td>
+</tr>
+<% end %>
+</table>

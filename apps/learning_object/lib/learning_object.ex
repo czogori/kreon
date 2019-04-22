@@ -7,21 +7,17 @@ defmodule LearningObject do
     @moduledoc """
     Bounded context for Learning Object
     """
-    
-    def create_video(%{uuid: uuid} = params) do
-      res = struct(CreateVideo, params)
-      |> Router.dispatch(consistency: :strong)
+    def create_video(params) do
+      uuid = Ecto.UUID.generate()
       
+      res = struct(CreateVideo, Map.put(params, :uuid, uuid))
+      |> Router.dispatch(consistency: :strong)
+
       with :ok <- res do
         {:ok, get(uuid)}
       else
         reply -> reply
       end
-    end
-
-    def create_video(%{} = params) do
-      Map.put(params, :uuid, Ecto.UUID.generate())
-      |> create_video()
     end
 
     defdelegate all(), to: Q
