@@ -6,6 +6,11 @@ defmodule BackofficeWeb.LearningObjectController do
     render conn, "index.html", items: LearningObject.all()
   end
 
+  def new(conn, %{"course" => _}) do
+    changeset = CreateVideo.validate(%CreateVideo{}, %{})
+    render(conn, "new_course.html", changeset: changeset)
+  end
+
   def new(conn, _params) do
     changeset = CreateVideo.validate(%CreateVideo{}, %{})
     render(conn, "new.html", changeset: changeset)

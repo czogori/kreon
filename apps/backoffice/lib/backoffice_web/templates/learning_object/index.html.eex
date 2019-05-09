@@ -1,4 +1,5 @@
-<%= link "Nowy kurs", to: Routes.learning_object_path(@conn, :new), class: "button" %>
+<%= link "Nowy kurs", to: Routes.learning_object_path(@conn, :new, %{course: nil}), class: "button" %>
+<%= link "Nowe wideo", to: Routes.learning_object_path(@conn, :new), class: "button" %>
 <table>
 <tr>
   <th>Nazwa</th>
