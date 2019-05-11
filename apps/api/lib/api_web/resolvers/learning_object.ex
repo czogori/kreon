@@ -1,5 +1,4 @@
 defmodule ApiWeb.Resolvers.LearningObject do
-  alias LearningObject
 
   def all(_args, _info) do
     {:ok, LearningObject.all()}
@@ -17,16 +16,4 @@ defmodule ApiWeb.Resolvers.LearningObject do
   def create(args, _info) do
     LearningObject.create_video(args)
   end
-
-  # def delete(args, _info) do
-  #     LearningObject.delete(args)
-  # end
-
-  # def register(args, _info) do
-  #     LearningObject.register(args)
-  # end
-
-  # def deregister(args, _info) do
-  #     LearningObject.deregister(args)
-  # end
 end
