@@ -1,5 +1,5 @@
 defmodule Database do
-   use Application
+  use Application
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
@@ -7,7 +7,7 @@ defmodule Database do
     # Define workers and child supervisors to be supervised
     children = [
       # Starts a worker by calling: Database.Worker.start_link(arg1, arg2, arg3)
-      worker(Repo, []),
+      worker(Repo, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

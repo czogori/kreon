@@ -1,8 +1,8 @@
 defmodule Kreon.User.Command.Register do
-    alias Kreon.User
+  alias Kreon.User
 
-    def execute(params) do
-        changeset = User.registration_changeset(%User{}, params)
-        Repo.insert(changeset)
-    end
+  def execute(params) do
+    changeset = User.registration_changeset(%User{}, params)
+    Repo.insert(changeset)
+  end
 end

@@ -1,9 +1,9 @@
 defmodule BackofficeWeb.LearningObjectController do
   use BackofficeWeb, :controller
   alias LearningObject.Commands.CreateVideo
-  
+
   def index(conn, _params) do
-    render conn, "index.html", items: LearningObject.all()
+    render(conn, "index.html", items: LearningObject.all())
   end
 
   def new(conn, %{"course" => _}) do
@@ -20,6 +20,7 @@ defmodule BackofficeWeb.LearningObjectController do
     case LearningObject.create_video(%{name: name, url: url}) do
       {:ok, _} ->
         conn |> redirect(to: Routes.learning_object_path(conn, :index))
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end

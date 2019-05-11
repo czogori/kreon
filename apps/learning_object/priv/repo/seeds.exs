@@ -27,8 +27,8 @@ if Mix.env == :dev do
       url: "https://www.youtube.com/watch?v=X2u0bBqhRKE",
       description: "Lonestar ElixirConf 2018 - Day 1 Keynote - Chris McCord"
     },
-    
+
   ]
-  
+
   for lo <- los, do: LearningObject.create(lo)
 end

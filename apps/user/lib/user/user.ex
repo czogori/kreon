@@ -5,13 +5,13 @@ defmodule Kreon.User do
   @primary_key {:id, :binary_id, autogenerate: false}
 
   schema "user" do
-    field :login
-    field :email
-    field :role
-    field :name
-    field :surname
-    field :password,      :string, virtual: true
-    field :password_hash, :string
+    field(:login)
+    field(:email)
+    field(:role)
+    field(:name)
+    field(:surname)
+    field(:password, :string, virtual: true)
+    field(:password_hash, :string)
 
     timestamps()
   end
@@ -36,11 +36,12 @@ defmodule Kreon.User do
   end
 
   defp put_pass_hash(changeset) do
-      case changeset do
-          %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
-              put_change(changeset, :password_hash, Comeonin.Argon2.hashpwsalt(pass))
-          _ ->
-              changeset
-      end
+    case changeset do
+      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
+        put_change(changeset, :password_hash, Comeonin.Argon2.hashpwsalt(pass))
+
+      _ ->
+        changeset
+    end
   end
 end

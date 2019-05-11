@@ -8,13 +8,13 @@ defmodule LearningObject.Aggregates.Video do
   alias LearningObject.Events.VideoCreated
 
   def create_video(
-    %Video{} = _video,
-    %CreateVideo{
-      uuid: uuid, 
-      name: name, 
-      url: url
-    }
-  ) do
+        %Video{} = _video,
+        %CreateVideo{
+          uuid: uuid,
+          name: name,
+          url: url
+        }
+      ) do
     %VideoCreated{
       uuid: uuid,
       name: name,
@@ -25,13 +25,13 @@ defmodule LearningObject.Aggregates.Video do
   # state mutators
 
   def apply(
-    %Video{} = video,
-    %VideoCreated{
-      uuid: uuid,
-      name: name,
-      url:  url
-    }
-  ) do
+        %Video{} = video,
+        %VideoCreated{
+          uuid: uuid,
+          name: name,
+          url: url
+        }
+      ) do
     %Video{video | uuid: uuid, name: name, url: url}
   end
 end
