@@ -2,18 +2,20 @@
 <%= link "Nowe wideo", to: Routes.learning_object_path(@conn, :new), class: "button" %>
 <table>
 <tr>
+  <th>Typ</th>
   <th>Nazwa</th>
-  <th>URL</th>
+  <th>Ost. modyfikacja</th>
   <th>Akcje</th>
 </tr>
 
 <%= for item <- @items do %>
 <tr>
+  <td><%= raw type(item.type) %></th>
   <td><%= item.name %></td>
-  <td><%= item.url %></td>
+  <td><%= item.updated_at %></td>
   <td>
-    <span><%= link "Pokaż", to: Routes.learning_object_path(@conn, :show, item), method: :delete, data: [confirm: "Jesteś pewny?"], class: "button" %></span>
-    <span><%= link "Usuń", to: Routes.learning_object_path(@conn, :delete, item), class: "button" %></span>
+    <span><%= link "Pokaż", to: Routes.learning_object_path(@conn, :show, item.id), class: "button" %></span>
+    <span><%= link "Usuń", to: Routes.learning_object_path(@conn, :delete, item), method: :delete, data: [confirm: "Jesteś pewny?"], class: "button" %></span>
   </td>
 </tr>
 <% end %>

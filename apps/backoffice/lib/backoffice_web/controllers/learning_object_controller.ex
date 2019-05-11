@@ -25,4 +25,9 @@ defmodule BackofficeWeb.LearningObjectController do
         render(conn, "new.html", changeset: changeset)
     end
   end
+
+  def show(conn, %{"id" => id}) do
+    learning_object = LearningObject.get(id)
+    render(conn, "show.html", learning_object: learning_object)
+  end
 end
