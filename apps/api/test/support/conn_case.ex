@@ -27,11 +27,11 @@ defmodule ApiWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Repo)
+    # :ok = Repo.sandbox.checkout(Repo)
 
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Repo, {:shared, self()})
-    end
+    # unless tags[:async] do
+    #   Repo.sandbox.mode(Repo, {:shared, self()})
+    # end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end

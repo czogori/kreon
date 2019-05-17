@@ -1,11 +1,20 @@
 defmodule LearningObject do
-  alias LearningObject.Commands.CreateVideo
+  alias LearningObject.Commands.{CreateCourse, CreateVideo}
   alias LearningObject.Queries.LearningObject, as: Q
   alias LearningObject.Router
 
   @moduledoc """
   Bounded context for Learning Object
   """
+
+  def create_course(params) do
+    uuid = Ecto.UUID.generate()
+
+    CreateCourse.new(params)
+    |> CreateCourse.assign_uuid(uuid)
+    |> Router.dispatch(consistency: :strong)
+  end
+
   def create_video(params) do
     uuid = Ecto.UUID.generate()
 

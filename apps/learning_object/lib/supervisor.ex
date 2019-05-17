@@ -7,7 +7,7 @@ defmodule LearningObject.Supervisor do
 
   def init(_arg) do
     children = [
-      worker(LearningObject.Projectors.VideoCreated, [], id: :video_created)
+      worker(LearningObject.Projectors.LearningObject, [], id: :learning_object)
     ]
 
     supervise(children, strategy: :one_for_one)
