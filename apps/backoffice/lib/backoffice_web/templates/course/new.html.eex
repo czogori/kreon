@@ -1,0 +1,9 @@
+<%= form_for @conn, Routes.course_path(@conn, :create), [as: :course, errors: @conn.assigns[:errors]], fn f -> %>
+  <%= label f, :name %>
+  <%= text_input f, :name %>
+  <%= error_tag f, :name %>
+
+  <div>
+    <%= submit "Zapisz" %>
+  </div>
+<% end %>

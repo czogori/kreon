@@ -5,7 +5,8 @@ defmodule LearningObject.Queries.LearningObject do
   def all do
     query =
       from(lo in LearningObject,
-        where: is_nil(lo.parent_id)
+        where: is_nil(lo.parent_id),
+        order_by: [desc: lo.updated_at]
       )
 
     Repo.all(query)

@@ -17,5 +17,6 @@ defmodule BackofficeWeb.Router do
     pipe_through(:browser)
 
     resources("/", LearningObjectController)
+    resources("/course", CourseController)
   end
 end

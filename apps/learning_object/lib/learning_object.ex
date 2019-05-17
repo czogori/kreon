@@ -10,9 +10,15 @@ defmodule LearningObject do
   def create_course(params) do
     uuid = Ecto.UUID.generate()
 
-    CreateCourse.new(params)
+    res = CreateCourse.new(params)
     |> CreateCourse.assign_uuid(uuid)
     |> Router.dispatch(consistency: :strong)
+
+    with :ok <- res do
+      {:ok, get(uuid)}
+    else
+      reply -> reply
+    end
   end
 
   def create_video(params) do
