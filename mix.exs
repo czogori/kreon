@@ -20,11 +20,11 @@ defmodule Kreon.Mixfile do
   defp aliases do
     [
       reset: [
+        "ecto.drop",
+        "ecto.create",
         "event_store.drop",
         "event_store.create",
         "event_store.init",
-        "ecto.drop",
-        "ecto.create",
         "ecto.migrate -r Repo",
         "run -r apps/user/priv/repo/seeds.exs",
         "run -r apps/learning_object/priv/repo/seeds.exs"
