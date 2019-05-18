@@ -1,34 +1,46 @@
 
 if Mix.env == :dev do
-  alias Kreon.LearningObject
+  alias LearningObject
 
-  id = Ecto.UUID.generate
-  los = [
+  videos = [
     %{
-      id: id,
-      name: "Lonestar ElixirConf 2018",
-      type: "video",
-      url: "https://www.youtube.com/watch?v=qhXjq3XU9_I",
-      description: "Lonestar ElixirConf 2018"
-    },
-    %{
-      id: Ecto.UUID.generate,
-      parent_id: id,
-      name: "Keynote - Chris McCord",
-      type: "video",
-      url: "https://www.youtube.com/watch?v=qhXjq3XU9_I",
-      description: "Keynote - Chris McCord"
-    },
-    %{
-      id: Ecto.UUID.generate,
-      parent_id: id,
-      name: "Why Elixir Matters A Genealogy of Functional Programming",
-      type: "video",
-      url: "https://www.youtube.com/watch?v=X2u0bBqhRKE",
-      description: "Lonestar ElixirConf 2018 - Day 1 Keynote - Chris McCord"
-    },
-
+      name: "The Power of Composition - Scott Wlaschin",
+      url: "https://www.youtube.com/watch?v=WhEkBCWpDas"
+    }
   ]
 
-  for lo <- los, do: LearningObject.create(lo)
+  courses = [
+    %{
+      name: "Lonestar ElixirConf 2018",
+      items: [
+        %{
+          name: "Day 1 Keynote - Chris McCord",
+          url: "https://www.youtube.com/watch?v=qhXjq3XU9_I"
+        },
+        %{
+          name: "Elixir is for Startups - Angle Jose",
+          url: "https://www.youtube.com/watch?v=FWPcslL-tNs"
+        },
+        %{
+          name: "Keynote - Tim Mechlem",
+          url: "https://www.youtube.com/watch?v=y8373byme_Q"
+        },
+        %{
+          name: "Managing state in distributed Elixir - Jerel Unruh",
+          url: "https://www.youtube.com/watch?v=V3iBgStaPmA"
+        },
+        %{
+          name: "Consistent, Distributed Elixir - Chris Keathley",
+          url: "https://www.youtube.com/watch?v=7vHw5UfNmJA"
+        },
+        %{
+          name: "Let's Talk Process Dictionary - Greg Vaughn",
+          url: "https://www.youtube.com/watch?v=zDIoFWwfBO0"
+        }
+      ]
+    }
+  ]
+
+  for course <- courses, do: LearningObject.create_course(course)
+  for video <- videos, do: LearningObject.create_video(video)
 end

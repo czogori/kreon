@@ -10,8 +10,8 @@ defmodule LearningObject.Repo.Migrations.CreateLearningObject do
       add :url, :string
       add :description, :string
       add :parameters, :map
-
-      timestamps()
+      add :inserted_at, :naive_datetime, default: fragment("now()")
+      add :updated_at, :naive_datetime, default: fragment("now()")
     end
   end
 end

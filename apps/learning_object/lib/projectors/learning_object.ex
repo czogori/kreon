@@ -25,6 +25,7 @@ defmodule LearningObject.Projectors.LearningObject do
       %{
         id: Ecto.UUID.generate(),
         name: item["name"],
+        url: item["url"],
         parent_id: course_created.uuid,
         type: "video"
       }

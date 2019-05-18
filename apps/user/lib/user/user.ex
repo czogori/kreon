@@ -20,7 +20,7 @@ defmodule Kreon.User do
 
   def changeset(user, params \\ %{}) do
     user
-    |> cast(params, ~w(id login email name surname role))
+    |> cast(params, @required)
     |> validate_required(@required)
     |> validate_length(:login, min: 2, max: 20)
     |> unique_constraint(:login)
@@ -29,9 +29,9 @@ defmodule Kreon.User do
   def registration_changeset(user, params \\ %{}) do
     user
     |> changeset(params)
-    |> cast(params, ~w(password), [])
+    |> cast(params, ~w(password)a, [])
     |> validate_required([:password])
-    |> validate_length(:password, min: 6, max: 30)
+    |> validate_length(:password, min: 2, max: 30)
     |> put_pass_hash()
   end
 
