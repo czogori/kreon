@@ -21,5 +21,14 @@ defmodule LearningObject.Projectors.LearningObject do
       name: course_created.name,
       type: "course"
     })
+    items = for item <- course_created.items do
+      %{
+        id: Ecto.UUID.generate(),
+        name: item["name"],
+        parent_id: course_created.uuid,
+        type: "video"
+      }
+    end
+    Ecto.Multi.insert_all(multi, :learning_object_items, Lo, items)
   end)
 end
