@@ -1,5 +1,9 @@
 defmodule LearningObject do
-  alias LearningObject.Commands.{CreateCourse, CreateVideo}
+  alias LearningObject.Commands.{
+    CreateCourse,
+    CreateVideo,
+    RegisterUser
+  }
   alias LearningObject.Queries.LearningObject, as: Q
   alias LearningObject.Router
 
@@ -34,6 +38,11 @@ defmodule LearningObject do
     else
       reply -> reply
     end
+  end
+
+  def register(user_id, learning_object_id) do
+    %RegisterUser{user_id: user_id, learning_object_id: learning_object_id}
+    |> Router.dispatch(consistency: :strong)
   end
 
   defdelegate all(), to: Q
