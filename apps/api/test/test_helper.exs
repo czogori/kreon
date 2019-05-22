@@ -1,3 +1,3 @@
 ExUnit.start()
 
-Repo.sandbox.mode(Repo, :manual)
+Repo.sandbox().mode(Repo, :manual)

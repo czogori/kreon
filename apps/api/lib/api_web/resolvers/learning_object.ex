@@ -1,5 +1,4 @@
 defmodule ApiWeb.Resolvers.LearningObject do
-
   def all(_args, _info) do
     {:ok, LearningObject.all()}
   end

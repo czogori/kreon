@@ -12,6 +12,5 @@ defmodule BackofficeWeb.LearningObjectView do
   end
 
   def type("course") do
-
   end
 end

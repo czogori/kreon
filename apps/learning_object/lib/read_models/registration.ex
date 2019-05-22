@@ -1,14 +1,11 @@
-defmodule LearningObject.ReadModels.Result do
+defmodule LearningObject.ReadModels.Registration do
   use Ecto.Schema
 
   @primary_key {:id, :binary_id, autogenerate: false}
 
-  schema "result" do
+  schema "registration" do
     field(:learning_object_id, :binary_id)
     field(:user_id, :binary_id)
-    field(:status, :string)
-    field(:score, :integer)
-    field(:time, :integer)
     timestamps()
   end
 end

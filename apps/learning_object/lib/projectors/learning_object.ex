@@ -16,15 +16,16 @@ defmodule LearningObject.Projectors.LearningObject do
   end)
 
   project(%CourseCreated{} = course_created, _metadata, fn multi ->
-    items = for item <- course_created.items do
-      %{
-        id: Ecto.UUID.generate(),
-        name: item["name"],
-        url: item["url"],
-        parent_id: course_created.uuid,
-        type: "video"
-      }
-    end
+    items =
+      for item <- course_created.items do
+        %{
+          id: Ecto.UUID.generate(),
+          name: item["name"],
+          url: item["url"],
+          parent_id: course_created.uuid,
+          type: "video"
+        }
+      end
 
     Ecto.Multi.insert(multi, :learning_object, %Lo{
       id: course_created.uuid,

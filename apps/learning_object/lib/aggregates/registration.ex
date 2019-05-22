@@ -1,5 +1,6 @@
 defmodule LearningObject.Aggregates.Registration do
-  defstruct user_id: nil,
+  defstruct id: nil,
+            user_id: nil,
             learning_object_id: nil
 
   alias __MODULE__
@@ -7,25 +8,28 @@ defmodule LearningObject.Aggregates.Registration do
   alias LearningObject.Events.UserRegistered
 
   def register_user(
-    %Registration{} = _registration,
-    %RegisterUser{
-      user_id: user_id,
-      learning_object_id: learning_object_id,
-    }
-  ) do
+        %Registration{} = _registration,
+        %RegisterUser{
+          id: id,
+          user_id: user_id,
+          learning_object_id: learning_object_id
+        }
+      ) do
     %UserRegistered{
+      id: id,
       user_id: user_id,
-      learning_object_id: learning_object_id,
+      learning_object_id: learning_object_id
     }
   end
 
   def apply(
-    %Registration{} = registration,
-    %UserRegistered{
-      user_id: user_id,
-      learning_object_id: learning_object_id,
-    }
-  ) do
-    %Registration{registration | user_id: user_id, learning_object_id: learning_object_id}
+        %Registration{} = registration,
+        %UserRegistered{
+          id: id,
+          user_id: user_id,
+          learning_object_id: learning_object_id
+        }
+      ) do
+    %Registration{registration | id: id, user_id: user_id, learning_object_id: learning_object_id}
   end
 end

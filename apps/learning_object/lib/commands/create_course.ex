@@ -8,7 +8,7 @@ defmodule LearningObject.Commands.CreateCourse do
   use ExConstructor
   use Vex.Struct
 
-  validates :name, presence: true, length: [min: 2]
+  validates(:name, presence: true, length: [min: 2])
 
   def assign_uuid(%CreateCourse{} = create_course, uuid) do
     %CreateCourse{create_course | uuid: uuid}

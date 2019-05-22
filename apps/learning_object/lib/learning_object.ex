@@ -4,6 +4,7 @@ defmodule LearningObject do
     CreateVideo,
     RegisterUser
   }
+
   alias LearningObject.Queries.LearningObject, as: Q
   alias LearningObject.Router
 
@@ -14,9 +15,10 @@ defmodule LearningObject do
   def create_course(params) do
     uuid = Ecto.UUID.generate()
 
-    res = CreateCourse.new(params)
-    |> CreateCourse.assign_uuid(uuid)
-    |> Router.dispatch(consistency: :strong)
+    res =
+      CreateCourse.new(params)
+      |> CreateCourse.assign_uuid(uuid)
+      |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
       {:ok, get(uuid)}
@@ -42,6 +44,7 @@ defmodule LearningObject do
 
   def register(user_id, learning_object_id) do
     %RegisterUser{user_id: user_id, learning_object_id: learning_object_id}
+    |> RegisterUser.assign_uuid(Ecto.UUID.generate())
     |> Router.dispatch(consistency: :strong)
   end
 

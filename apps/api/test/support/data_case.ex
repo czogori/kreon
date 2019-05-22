@@ -26,10 +26,10 @@ defmodule Api.DataCase do
   end
 
   setup tags do
-    :ok = Repo.sandbox.checkout(Repo)
+    :ok = Repo.sandbox().checkout(Repo)
 
     unless tags[:async] do
-      Repo.sandbox.mode(Repo, {:shared, self()})
+      Repo.sandbox().mode(Repo, {:shared, self()})
     end
 
     :ok

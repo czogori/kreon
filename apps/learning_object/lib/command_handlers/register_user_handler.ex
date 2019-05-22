@@ -4,9 +4,9 @@ defmodule LearningObject.CommandHandlers.RegisterUserHandler do
   alias LearningObject.Commands.RegisterUser
 
   def handle(
-    %Registration{} = _aggregate,
-    %RegisterUser{} = register_user) do
-
+        %Registration{} = _aggregate,
+        %RegisterUser{} = register_user
+      ) do
     case Vex.valid?(register_user) do
       true -> Registration.register_user(%Registration{}, register_user)
       false -> {:error, Vex.errors(register_user)}
