@@ -4,12 +4,12 @@ defmodule User.Repo.Migrations.CreateUser do
   def change do
     create table(:user, primary_key: false) do
       add :id,            :uuid,   primary_key: true
-      add :login,         :string, null: false
-      add :email,         :string, null: false
-      add :role,          :string, null: false
-      add :password_hash, :string
-      add :name,          :string, null: false
-      add :surname,       :string, null: false
+      add :login,         :text, null: false
+      add :email,         :text, null: false
+      add :role,          :text, null: false
+      add :password_hash, :text
+      add :name,          :text, null: false
+      add :surname,       :text, null: false
 
       timestamps()
     end
