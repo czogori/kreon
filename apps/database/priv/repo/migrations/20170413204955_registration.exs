@@ -9,5 +9,7 @@ defmodule LearningObject.Repo.Migrations.CreateRegistration do
 
       timestamps()
     end
+
+    create(unique_index(:registration, [:user_id, :learning_object_id]))
   end
 end
