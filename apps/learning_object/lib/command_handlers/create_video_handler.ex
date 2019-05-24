@@ -4,11 +4,9 @@ defmodule LearningObject.CommandHandlers.CreateVideoHandler do
   alias LearningObject.Commands.CreateVideo
 
   def handle(%Video{uuid: nil} = _aggregate, %CreateVideo{} = create_video) do
-    changeset = CreateVideo.validate(create_video, Map.from_struct(create_video))
-
-    case changeset.valid? do
+    case Vex.valid?(create_video) do
       true -> Video.create_video(%Video{}, create_video)
-      false -> {:error, changeset}
+      false -> {:error, Vex.errors(create_video)}
     end
   end
 end

@@ -1,22 +1,17 @@
 defmodule LearningObject.Commands.CreateVideo do
   alias Ecto.Changeset
+  alias __MODULE__
 
   defstruct uuid: "",
             name: "",
             url: ""
+  use ExConstructor
+  use Vex.Struct
 
-  @types %{
-    uuid: :string,
-    name: :string,
-    url: :string
-  }
+  validates(:name, presence: true, length: [min: 2])
+  validates(:url, presence: true)
 
-  def validate(command, params \\ %{}) do
-    fields = Map.keys(@types)
-
-    changeset =
-      {command, @types}
-      |> Ecto.Changeset.cast(params, fields)
-      |> Ecto.Changeset.validate_required(fields)
+  def assign_uuid(%CreateVideo{} = create_video, uuid) do
+    %CreateVideo{create_video | uuid: uuid}
   end
 end

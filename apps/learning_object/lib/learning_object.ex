@@ -30,8 +30,8 @@ defmodule LearningObject do
     uuid = Ecto.UUID.generate()
 
     res =
-      CreateVideo
-      |> struct(Map.put(params, :uuid, uuid))
+      CreateVideo.new(params)
+      |> CreateVideo.assign_uuid(uuid)
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
