@@ -5,7 +5,6 @@ defmodule LearningObject do
     RegisterUser
   }
 
-  alias LearningObject.Queries.LearningObject, as: Q
   alias LearningObject.Router
 
   @moduledoc """
@@ -43,11 +42,16 @@ defmodule LearningObject do
   end
 
   def register(user_id, learning_object_id) do
-    %RegisterUser{user_id: user_id, learning_object_id: learning_object_id}
-    |> RegisterUser.assign_uuid(Ecto.UUID.generate())
-    |> Router.dispatch(consistency: :strong)
+    res =
+      %RegisterUser{user_id: user_id, learning_object_id: learning_object_id}
+      |> RegisterUser.assign_uuid(Ecto.UUID.generate())
+      |> Router.dispatch(consistency: :strong)
+
+    with :ok <- res do
+    end
   end
 
-  defdelegate all(), to: Q
-  defdelegate get(id), to: Q
+  defdelegate all(), to: LearningObject.Queries.LearningObject
+  defdelegate get(id), to: LearningObject.Queries.LearningObject
+  defdelegate my(user_id), to: LearningObject.Queries.Registration
 end

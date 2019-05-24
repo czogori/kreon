@@ -26,20 +26,16 @@ defmodule ApiWeb.Schema do
       resolve(&Resolvers.LearningObject.find/2)
     end
 
-    #   field :user_learning_objects, list_of(:learning_object_user) do
-    #     resolve &Resolvers.LearningObjectUser.all/2
-    #   end
-
     #   field :results, list_of(:result) do
     #     arg :learning_object_id, :integer
     #     arg :user_id, :integer
     #     resolve &Resolvers.Result.all/2
     #   end
 
-    #   field :my, list_of(:my) do
-    #     arg :user_id, :integer
-    #     resolve &Resolvers.Result.my/2
-    #   end
+    field :my, list_of(:my) do
+      arg(:user_id, non_null(:string))
+      resolve(&Resolvers.Registration.my/2)
+    end
   end
 
   mutation do
@@ -107,12 +103,12 @@ defmodule ApiWeb.Schema do
     #     resolve &Resolvers.Result.commit/2
     #   end
 
-    #   @desc "Register user on learning object"
-    #   field :register, type: :learning_object_user do
-    #     arg :learning_object_id, non_null(:string)
-    #     arg :user_id, non_null(:integer)
-    #     resolve &Resolvers.LearningObject.register/2
-    #   end
+    @desc "Register user on learning object"
+    field :register, type: :registration do
+      arg(:learning_object_id, non_null(:string))
+      arg(:user_id, non_null(:string))
+      resolve(&Resolvers.Registration.register/2)
+    end
 
     #   @desc "Deregister user on learning object"
     #   field :deregister, type: :learning_object_user do

@@ -40,10 +40,11 @@ defmodule ApiWeb.SchemaTypes do
     field(:description, :string)
   end
 
-  # object :learning_object_user do
-  #   field :learning_object_id, :string
-  #   field :user_id, :string
-  # end
+  object :registration do
+    field(:id, :string)
+    field(:learning_object_id, :string)
+    field(:user_id, :string)
+  end
 
   # object :result do
   #   field :learning_object_id, :string
@@ -54,14 +55,14 @@ defmodule ApiWeb.SchemaTypes do
   #   field :progress, :string
   # end
 
-  # object :my do
-  #   field :id, :string
-  #   field :user_id, :string
-  #   field :status, :string
-  #   field :score, :string
-  #   field :time, :string
-  #   field :progress, :string
-  #   field :name, :string
-  #   field :description, :string
-  # end
+  object :my do
+    field(:id, :string)
+    field(:user_id, :string)
+    # field :status, :string
+    # field :score, :string
+    # field :time, :string
+    # field :progress, :string
+    field(:name, :string)
+    field(:description, :string)
+  end
 end
