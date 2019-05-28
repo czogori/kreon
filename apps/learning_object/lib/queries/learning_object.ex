@@ -13,18 +13,20 @@ defmodule LearningObject.Queries.LearningObject do
   end
 
   def get(id) do
-    lo = Repo.get(LearningObject, id)
-    if lo.type == "course" do
-      id = lo.id
-      query =
-        from(lo in LearningObject,
-          where: lo.parent_id == ^id,
-          order_by: [desc: lo.updated_at]
-        )
-
-      Map.put(lo, :items, Repo.all(query))
-    else
-      lo
-    end
+    LearningObject
+    |> Repo.get(id)
+    |> items()
   end
+
+  defp items(%LearningObject{type: "course"} = lo) do
+    id = lo.id
+    query =
+      from(lo in LearningObject,
+        where: lo.parent_id == ^id,
+        order_by: [desc: lo.updated_at]
+      )
+    Map.put(lo, :items, Repo.all(query))
+  end
+
+  defp items(lo), do: lo
 end
