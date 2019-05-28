@@ -20,7 +20,7 @@ defmodule LearningObject do
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
-      {:ok, get(uuid)}
+      {:ok, one(uuid)}
     else
       reply -> reply
     end
@@ -35,7 +35,7 @@ defmodule LearningObject do
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
-      {:ok, get(uuid)}
+      {:ok, one(uuid)}
     else
       reply -> reply
     end
@@ -52,6 +52,6 @@ defmodule LearningObject do
   end
 
   defdelegate all(), to: LearningObject.Queries.LearningObject
-  defdelegate get(id), to: LearningObject.Queries.LearningObject
+  defdelegate one(id), to: LearningObject.Queries.LearningObject
   defdelegate my(user_id), to: LearningObject.Queries.Registration
 end

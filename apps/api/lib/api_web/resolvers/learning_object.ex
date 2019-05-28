@@ -4,7 +4,7 @@ defmodule ApiWeb.Resolvers.LearningObject do
   end
 
   def find(%{id: id}, _info) do
-    case LearningObject.get(id) do
+    case LearningObject.one(id) do
       nil -> {:error, "Learning object not found"}
       learning_object -> {:ok, learning_object}
     end

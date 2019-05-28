@@ -12,7 +12,7 @@ defmodule LearningObject.Queries.LearningObject do
     Repo.all(query)
   end
 
-  def get(id) do
+  def one(id) do
     LearningObject
     |> Repo.get(id)
     |> items()
