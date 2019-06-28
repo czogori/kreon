@@ -38,6 +38,7 @@ defmodule ApiWeb.SchemaTypes do
     field(:parent_id, :integer)
     field(:url, :string)
     field(:description, :string)
+    field :items, list_of(:course_item)
   end
 
   object :registration do
@@ -54,6 +55,11 @@ defmodule ApiWeb.SchemaTypes do
   #   field :time, :string
   #   field :progress, :string
   # end
+
+  object :course_item do
+    field(:id, :string)
+    field(:name, :string)
+  end
 
   object :my do
     field(:id, :string)

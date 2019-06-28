@@ -1,5 +1,6 @@
 defmodule LearningObject do
   alias LearningObject.Commands.{
+    BeginSession,
     CreateCourse,
     CreateVideo,
     RegisterUser
@@ -45,6 +46,17 @@ defmodule LearningObject do
     res =
       %RegisterUser{user_id: user_id, learning_object_id: learning_object_id}
       |> RegisterUser.assign_uuid(Ecto.UUID.generate())
+      |> Router.dispatch(consistency: :strong)
+
+    with :ok <- res do
+    end
+  end
+
+  def start_session(user_id, learning_object_id) do
+    res =
+      %BeginSession{user_id: user_id, learning_object_id: learning_object_id}
+      |> BeginSession.assign_uuid(Ecto.UUID.generate())
+      |> BeginSession.assign_begin(DateTime.utc_now())
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
