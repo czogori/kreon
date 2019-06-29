@@ -68,7 +68,7 @@ defmodule LearningObject do
     res =
       %EndSession{user_id: user_id, learning_object_id: learning_object_id}
       |> EndSession.assign_uuid(Ecto.UUID.generate())
-      |> EndSession.assign_begin(DateTime.utc_now())
+      |> EndSession.assign_end(DateTime.utc_now())
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
