@@ -4,7 +4,7 @@ defmodule LearningObject.Router do
   alias LearningObject.Aggregates.{Course, Video, Registration, Session}
 
   alias LearningObject.CommandHandlers.{
-    BeginSessionHandler,
+    SessionHandler,
     CreateCourseHandler,
     CreateVideoHandler,
     RegisterUserHandler
@@ -14,11 +14,12 @@ defmodule LearningObject.Router do
     CreateCourse,
     CreateVideo,
     RegisterUser,
-    BeginSession
+    BeginSession,
+    EndSession
   }
 
   dispatch([CreateVideo], to: CreateVideoHandler, aggregate: Video, identity: :uuid)
   dispatch([CreateCourse], to: CreateCourseHandler, aggregate: Course, identity: :uuid)
   dispatch([RegisterUser], to: RegisterUserHandler, aggregate: Registration, identity: :id)
-  dispatch([BeginSession], to: BeginSessionHandler, aggregate: Session, identity: :uuid)
+  dispatch([BeginSession, EndSession], to: SessionHandler, aggregate: Session, identity: :uuid)
 end
