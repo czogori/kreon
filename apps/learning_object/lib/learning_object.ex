@@ -57,18 +57,18 @@ defmodule LearningObject do
     res =
       %BeginSession{user_id: user_id, learning_object_id: learning_object_id}
       |> BeginSession.assign_uuid(Ecto.UUID.generate())
-      |> BeginSession.assign_begin(DateTime.utc_now())
+      |> BeginSession.assign_begin(NaiveDateTime.utc_now())
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
     end
   end
 
-  def end_session(user_id, learning_object_id) do
+  def end_session(uuid) do
     res =
-      %EndSession{user_id: user_id, learning_object_id: learning_object_id}
-      |> EndSession.assign_uuid(Ecto.UUID.generate())
-      |> EndSession.assign_end(DateTime.utc_now())
+      %EndSession{}
+      |> EndSession.assign_uuid(uuid)
+      |> EndSession.assign_end(NaiveDateTime.utc_now())
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do

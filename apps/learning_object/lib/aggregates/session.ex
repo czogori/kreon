@@ -27,18 +27,17 @@ defmodule LearningObject.Aggregates.Session do
   end
 
   def end_session(
-    %Session{} = _session,
+    %Session{uuid: uuid} = session,
     %EndSession{
       uuid: uuid,
-      learning_object_id: learning_object_id,
-      user_id: user_id,
       end: ends
     }
     ) do
     %SessionEnded{
       uuid: uuid,
-      learning_object_id: learning_object_id,
-      user_id: user_id,
+      learning_object_id: session.learning_object_id,
+      user_id: session.user_id,
+      begin: session.begin,
       end: ends
     }
   end
@@ -63,8 +62,6 @@ defmodule LearningObject.Aggregates.Session do
         %Session{} = session,
         %SessionEnded{
           uuid: uuid,
-          learning_object_id: learning_object_id,
-          user_id: user_id,
           end: ends
         }
       ) do

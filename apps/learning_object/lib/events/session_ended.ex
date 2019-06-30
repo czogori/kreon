@@ -5,6 +5,7 @@ defmodule LearningObject.Events.SessionEnded do
     :uuid,
     :learning_object_id,
     :user_id,
+    :begin,
     :end
   ]
 end

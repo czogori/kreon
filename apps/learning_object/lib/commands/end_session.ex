@@ -2,8 +2,6 @@ defmodule LearningObject.Commands.EndSession do
   alias __MODULE__
 
   defstruct uuid: nil,
-            learning_object_id: nil,
-            user_id: nil,
             end: nil
 
   use ExConstructor
