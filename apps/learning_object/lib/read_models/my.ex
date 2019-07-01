@@ -1,5 +1,5 @@
 defmodule LearningObject.ReadModels.My do
-  use Ecto.Schema
+  use Kreon.Schema
 
   @primary_key false
   schema "my_view" do

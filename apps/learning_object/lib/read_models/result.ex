@@ -1,7 +1,5 @@
 defmodule LearningObject.ReadModels.Result do
-  use Ecto.Schema
-
-  @primary_key {:id, :binary_id, autogenerate: false}
+  use Kreon.Schema
 
   schema "result" do
     field(:learning_object_id, :binary_id)

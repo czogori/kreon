@@ -1,8 +1,6 @@
 defmodule Kreon.User do
-  use Ecto.Schema
+  use Kreon.Schema
   import Ecto.Changeset
-
-  @primary_key {:id, :binary_id, autogenerate: false}
 
   schema "user" do
     field(:login)
