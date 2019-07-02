@@ -53,14 +53,16 @@ defmodule LearningObject do
     end
   end
 
-  def start_session(user_id, learning_object_id) do
+  def begin_session(user_id, learning_object_id) do
+    uuid = Ecto.UUID.generate()
     res =
       %BeginSession{user_id: user_id, learning_object_id: learning_object_id}
-      |> BeginSession.assign_uuid(Ecto.UUID.generate())
+      |> BeginSession.assign_uuid(uuid)
       |> BeginSession.assign_begin(DateTime.utc_now())
       |> Router.dispatch(consistency: :strong)
 
     with :ok <- res do
+      uuid
     end
   end
 

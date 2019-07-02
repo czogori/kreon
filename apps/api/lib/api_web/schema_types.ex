@@ -71,4 +71,10 @@ defmodule ApiWeb.SchemaTypes do
     field(:name, :string)
     field(:description, :string)
   end
+
+  object :session do
+    field(:id, :string)
+    field(:learning_object_id, :string)
+    field(:user_id, :string)
+  end
 end
