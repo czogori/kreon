@@ -26,9 +26,9 @@ defmodule Database.Mixfile do
       {:ecto, "~> 3.1.0", override: true},
       {:ecto_sql, "~> 3.1.0"},
       {:postgrex, ">= 0.14.0"},
-      {:commanded, "0.18.0"},
+      {:commanded, "0.19.0"},
       {:commanded_ecto_projections, "~> 0.8"},
-      {:commanded_eventstore_adapter, "0.5.0"},
+      {:commanded_eventstore_adapter, "0.6.0"},
       {:jason, "~> 1.1"}
     ]
   end
