@@ -26,9 +26,8 @@ defmodule LearningObject.Mixfile do
 
   defp deps do
     [
+      {:infrastructure, in_umbrella: true},
       {:database, in_umbrella: true},
-      {:vex, "~> 0.8.0"},
-      {:exconstructor, "~> 1.1.0"}
     ]
   end
 end
