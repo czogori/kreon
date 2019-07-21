@@ -25,8 +25,8 @@ defmodule User.Mixfile do
     [
       {:infrastructure, in_umbrella: true},
       {:database, in_umbrella: true},
-      {:comeonin, "~> 4.0"},
-      {:argon2_elixir, "~> 1.2"}
+      {:comeonin, "~> 5.0"},
+      {:argon2_elixir, "~> 2.0"}
     ]
   end
 end

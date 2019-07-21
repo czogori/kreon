@@ -6,7 +6,8 @@ defmodule Api.Auth do
 
     query
     |> Repo.one()
-    |> check_password(plain_text_password)
+    #    |> check_password(plain_text_password)
+    |> Argon2.check_pass(plain_text_password)
   end
 
   defp check_password(nil, _), do: {:error, "Incorrect username or password"}

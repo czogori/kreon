@@ -53,8 +53,8 @@ defmodule Api.Mixfile do
       {:poison, "~> 3.1"},
       {:cors_plug, "~> 1.5"},
       {:guardian, "~> 1.0"},
-      {:comeonin, "~> 4.0"},
-      {:argon2_elixir, "~> 1.2"}
+      {:comeonin, "~> 5.0"},
+      {:argon2_elixir, "~> 2.0"}
     ]
   end
 
