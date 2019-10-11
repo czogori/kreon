@@ -49,7 +49,6 @@ defmodule Api.Mixfile do
       {:absinthe_ecto, git: "https://github.com/absinthe-graphql/absinthe_ecto.git"},
       {:absinthe_phoenix, "~> 1.4.0"},
       {:user, in_umbrella: true},
-      {:learning_object, in_umbrella: true},
       {:poison, "~> 3.1"},
       {:cors_plug, "~> 1.5"},
       {:guardian, "~> 1.0"},
