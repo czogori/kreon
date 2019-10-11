@@ -45,6 +45,7 @@ defmodule LearningObjectApi.MixProject do
       {:phoenix, "~> 1.4.6"},
       {:phoenix_pubsub, "~> 1.1"},
       {:plug_cowboy, "~> 2.0"},
+      {:cors_plug, "~> 1.5"}
     ]
   end
 end
