@@ -10,9 +10,15 @@ defmodule ApiGateway.ProxyPlug do
     |> resp(conn)
   end
 
-  defp resp(["lo"], conn), do: LearningObjectApiWeb.Endpoint.call(conn, [])
+  defp resp(["lo"], conn) do
+    Logger.info("LO")
+    LearningObjectApiWeb.Endpoint.call(conn, [])
+  end
   defp resp(["user"], conn), do: ApiWeb.Endpoint.call(conn, [])
-  defp resp([], conn), do: ApiWeb.Endpoint.call(conn, [])
+  defp resp([], conn) do
+    Logger.info("user")
+    ApiWeb.Endpoint.call(conn, [])
+  end
   defp resp(_, conn) do
     conn
     |> Plug.Conn.resp(404, "Not found")
