@@ -18,13 +18,12 @@ defmodule User.Mixfile do
 
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger, :database], mod: {User.Application, []}]
+    [extra_applications: [:logger], mod: {User.Application, []}]
   end
 
   defp deps do
     [
       {:infrastructure, in_umbrella: true},
-      {:database, in_umbrella: true},
       {:comeonin, "~> 5.0"},
       {:argon2_elixir, "~> 2.0"}
     ]

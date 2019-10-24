@@ -25,8 +25,11 @@ defmodule Infrastructure.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:ecto, "~> 3.1.0", override: true},
+      {:ecto_sql, "~> 3.1.0"},
       {:exconstructor, "~> 1.1.0"},
       {:jason, "~> 1.1"},
+      {:postgrex, ">= 0.14.0"},
       {:vex, "~> 0.8.0"}
     ]
   end

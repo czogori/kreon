@@ -21,13 +21,15 @@ defmodule LearningObject.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger, :database], mod: {LearningObject.Application, []}]
+    [extra_applications: [:logger], mod: {LearningObject.Application, []}]
   end
 
   defp deps do
     [
-      {:infrastructure, in_umbrella: true},
-      {:database, in_umbrella: true},
+      {:commanded, "0.19.0"},
+      {:commanded_ecto_projections, "~> 0.8"},
+      {:commanded_eventstore_adapter, "0.6.0"},
+      {:infrastructure, in_umbrella: true}
     ]
   end
 end
