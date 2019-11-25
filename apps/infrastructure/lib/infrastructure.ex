@@ -1,2 +1,0 @@
-defmodule Infrastructure do
-end
