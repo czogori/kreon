@@ -1,4 +1,4 @@
-defmodule BarPlug do
+defmodule ReverseProxyPlug do
   @moduledoc """
   The main ReverseProxyPlug module.
   """
@@ -33,16 +33,15 @@ defmodule BarPlug do
   end
 
   def request(conn, body, opts) do
-    {method, url, headers, client_options} = prepare_request(conn, opts)
+    {method, _, headers, client_options} = prepare_request(conn, opts)
 
     headers_map = Enum.into(headers, %{})
     url = if Map.has_key?(headers_map, "x-kreon-service") do
-      "http://localhost:4002/graphiql"
+      opts[:routes][Map.get(headers_map, "x-kreon-service")]
     else
-      "http://localhost:4001/graphiql"
+      opts[:routes]["default"]
     end
-IO.inspect Enum.into(headers, %{})
-IO.inspect url
+
     opts[:client].request(%HTTPoison.Request{
       method: method,
       url: url,
