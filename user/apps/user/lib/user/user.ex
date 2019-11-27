@@ -20,7 +20,7 @@ defmodule Kreon.User do
     user
     |> cast(params, @required)
     |> validate_required(@required)
-    |> validate_length(:login, min: 2, max: 20)
+    |> validate_length(:login, min: 2, max: 64)
     |> unique_constraint(:login)
   end
 

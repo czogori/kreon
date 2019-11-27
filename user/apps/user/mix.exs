@@ -27,7 +27,8 @@ defmodule User.Mixfile do
       {:ecto, "~> 3.1.0", override: true},
       {:ecto_sql, "~> 3.1.0"},
       {:jason, "~> 1.1"},
-      {:postgrex, ">= 0.14.0"}
+      {:postgrex, ">= 0.14.0"},
+      {:phoenix_pubsub_redis, "~> 2.1.0"}
     ]
   end
 end
