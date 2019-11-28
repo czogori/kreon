@@ -27,7 +27,7 @@ defmodule LearningObjectSync.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.1.0"},
-      {:phoenix_pubsub, "~> 1.0.2"},
+      {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_pubsub_redis, "~> 2.1.0"},
       {:postgrex, ">= 0.14.0"}
     ]
